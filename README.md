@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/bearcherian/rollzap.svg?branch=master)](https://travis-ci.com/bearcherian/rollzap)
+[![Build Status](https://travis-ci.com/jacobweinstock/rollzap.svg?branch=master)](https://travis-ci.com/bearcherian/rollzap)
 
 # Rollbar Zap
 

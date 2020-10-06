@@ -27,7 +27,7 @@ func TestRollbarCoreLevels(t *testing.T) {
 	if rc == nil {
 		t.Fatalf("RollbarCore not initialized")
 	}
-	if rc.minLevel != zapcore.DebugLevel {
+	if rc.LevelEnabler != zapcore.DebugLevel {
 		t.Fatalf("rc.minLevel is not the correct value")
 	}
 
@@ -37,7 +37,7 @@ func TestRollbarCoreLevels(t *testing.T) {
 		t.Fatalf("RollbarCore not initialized")
 	}
 
-	if rc.minLevel != zapcore.ErrorLevel {
+	if rc.LevelEnabler != zapcore.ErrorLevel {
 		t.Fatalf("rc.minLevel is not the correct value")
 	}
 }
@@ -57,7 +57,7 @@ func TestNewRollbarCore(t *testing.T) {
 		t.Fatalf("RollbarCore not initialized")
 	}
 
-	if rc.minLevel != zapcore.ErrorLevel {
+	if rc.LevelEnabler != zapcore.ErrorLevel {
 		t.Fatalf("rc.minLevel is not the correct value")
 	}
 

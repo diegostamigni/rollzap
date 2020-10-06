@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/bearcherian/rollzap"
+	"github.com/jacobweinstock/rollzap"
 	rollbar "github.com/rollbar/rollbar-go"
 	"go.uber.org/zap"
 	"go.uber.org/zap/zapcore"
