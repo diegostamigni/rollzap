@@ -1,4 +1,4 @@
-[![Test(https://github.com/jacobweinstock/rollzap/workflows/Test/badge.svg)](https://github.com/jacobweinstock/rollzap/actions?query=workflow%3A%22Test)
+[![Test](https://github.com/jacobweinstock/rollzap/workflows/Test/badge.svg)](https://github.com/jacobweinstock/rollzap/actions?query=workflow=Test)
 [![Go Report](https://goreportcard.com/badge/github.com/jacobweinstock/rollzap)](https://goreportcard.com/report/github.com/jacobweinstock/rollzap)
 
 # Rollbar Zap
