@@ -66,7 +66,12 @@ func (c *RollbarCore) Write(entry zapcore.Entry, fields []zapcore.Field) error {
 	case zapcore.WarnLevel:
 		rollbar.Warning(entry.Message, fieldMap)
 	case zapcore.ErrorLevel:
-		rollbar.Error(entry.Message, fieldMap)
+		errMap := extractError(fields)
+		if errMap != nil {
+			rollbar.Error(entry.Message, fieldMap, errMap)
+		} else {
+			rollbar.Error(entry.Message, fieldMap)
+		}
 	case zapcore.DPanicLevel:
 		rollbar.Critical(entry.Message, fieldMap)
 	case zapcore.PanicLevel:
@@ -82,6 +87,21 @@ func (c *RollbarCore) Write(entry zapcore.Entry, fields []zapcore.Field) error {
 // Sync flushes
 func (c *RollbarCore) Sync() error {
 	return nil
+}
+
+func extractError(fields []zapcore.Field) error {
+	enc := zapcore.NewMapObjectEncoder()
+	for _, f := range fields {
+		f.AddTo(enc)
+	}
+
+	var foundError error
+	for _, f := range fields {
+		if f.Type == zapcore.ErrorType {
+			foundError = f.Interface.(error)
+		}
+	}
+	return foundError
 }
 
 func fieldsToMap(fields []zapcore.Field) map[string]interface{} {
